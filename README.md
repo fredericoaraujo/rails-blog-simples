@@ -1,24 +1,17 @@
-# README
+# Simples Blog
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Esse projeto é de estudos para aprendizagem de Ruby on Rails
 
-Things you may want to cover:
+* Ruby versão 3.2.1
+* Rails versão 7.0.4.3
+* SGBD Postgresql 15
 
-* Ruby version
+## Funcionalidades
 
-* System dependencies
+* CRUD Post
+* Cadastrar Comentários
+* Buscar em posts e comentários
 
-* Configuration
+## Extras
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Customização de CSS do bootstrap no rails
