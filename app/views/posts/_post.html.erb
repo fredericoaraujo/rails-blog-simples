@@ -1,17 +1,21 @@
-<div id="<%= dom_id post %>">
-  <p>
-    <strong>Title:</strong>
-    <%= post.title %>
-  </p>
-
-  <p>
-    <strong>Author:</strong>
-    <%= post.author %>
-  </p>
-
-  <p>
-    <strong>Body:</strong>
-    <%= post.body %>
-  </p>
-
+<div class="card bg-light mb-3">
+  <div class="card-body">
+    <h3 class="card-title">
+      <%= link_to post.title, post %>
+    </h3>
+    <div class="mutted mb-2">
+      <em>Por: <%= post.author %> (<%= l post.created_at, format: :short %>) </em>
+    </div>
+    <p class="card-text"><%= post.body.truncate(200) %></p>
+    <p class="text-mutted"><%= pluralize(post.comments.count, 'Comentário') %></p>
+    <div>
+      <%= link_to 'Ler artigo', post, class: 'btn btn-primary' %>
+      <%= link_to 'Editar artigo', edit_post_path(post), class: 'btn btn-secondary' %>
+      <%= link_to 'Excluir artigo', post, class: 'btn btn-danger text-white', 
+        data: { 
+          turbo_method: :delete,
+          turbo_confirm: 'Você tem certeza?' 
+        } %>
+    </div>
+  </div>
 </div>

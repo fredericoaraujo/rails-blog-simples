@@ -11,6 +11,48 @@
   </head>
 
   <body>
-    <%= yield %>
+
+    <div class="header bg-primary text-center">
+      <%= link_to root_path, class: 'text-white' do %>
+        <h1 class="display-4">Blog do Fred</h1>
+      <% end %>
+      <p class="lead">TESTE</p>
+    </div>
+
+    <div class="container">
+      <% flash.each do |type, message| %>
+        <div class="alert alert-<%= type == 'alert' ? 'warning' : 'info' %> alert-dismissible fade show" role="alert">
+          <%= message %>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>    
+      <% end %>
+
+      <div class="row col">
+        <div class="col-4 offset-8">
+          <div class="search">
+            <%= form_with url: search_posts_path, method: :get, local: true, class: 'form-inline' do |form| %>
+              <div class="input-group mb-3">
+                <%= form.search_field :q, class: 'form-control', required: true, placeholder: 'Busca', 
+                    'aria-label': "Busca", 'aria-describedby': "button-addon2", value: params[:q] %>
+                <%= form.submit 'Buscar', class: 'btn btn-outline-secondary', id: "button-addon2", data: { disable_with: 'Buscando ..' }  %>
+              </div>
+              
+            <% end %>
+          </div>
+        </div>
+        
+      </div>
+
+      <%= yield %>
+    </div>
+
+    
+
+    <footer class="bg-primary text-white text-center p-4 mt-4">
+    
+      Blog do Fred &copy; <%= Date.current.year %>
+    </footer>
+    
+    
   </body>
 </html>

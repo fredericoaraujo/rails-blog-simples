@@ -1,0 +1,12 @@
+<h2 class="text-muted">
+  <% if @posts.any? %>
+    <strong><%= @posts.count %></strong> resultado(s) encontrado(s): 
+  <% else %>
+    <strong class="text-danger">Nenhum resultado encontrado </strong>
+  <% end %>
+</h2>
+
+
+<% @posts.each do|post| %>
+  <%= render post %>
+<% end %>
