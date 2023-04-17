@@ -12094,6 +12094,10 @@
   };
   enableDismissTrigger(Toast);
   defineJQueryPlugin(Toast);
+
+  // app/javascript/application.js
+  var tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+  var tooltipList = [...tooltipTriggerList].map((tooltipTriggerEl) => new Tooltip(tooltipTriggerEl));
 })();
 /*! Bundled license information:
 
